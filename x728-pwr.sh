@@ -24,7 +24,7 @@ if [ ${#kernel_version_array[@]} -ge 2 ]; then
         SHUTDOWN=517
         BOOT=524
     elif [ ${kernel_version_array[0]} -eq ${basee_version[0]} ] && [ ${kernel_version_array[1]} -gt ${basee_version[1]} ]; then          
-        BUTTON=517
+        SHUTDOWN=517
         BOOT=524
     else          
         SHUTDOWN=5
