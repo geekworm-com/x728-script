@@ -28,7 +28,7 @@ if [ ${#kernel_version_array[@]} -ge 2 ]; then
         BOOT=524
     else          
         SHUTDOWN=5
-        BUTTON=12
+        BOOT=12
     fi  
 else  
     echo "Can't get the kernel version" 
