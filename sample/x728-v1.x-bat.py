@@ -26,6 +26,8 @@ def readCapacity(bus):
      read = bus.read_word_data(address, 4)
      swapped = struct.unpack("<H", struct.pack(">H", read))[0]
      capacity = swapped/256
+     if capacity > 100:
+        capacity = 100
      return capacity
 
 bus = smbus.SMBus(1) # 0 = /dev/i2c-0 (port I2C0), 1 = /dev/i2c-1 (port I2C1)
