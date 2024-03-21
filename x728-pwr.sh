@@ -21,7 +21,7 @@ kernel_version_array=($(echo $kernel_version | tr '.' ' '))
 if [ ${#kernel_version_array[@]} -ge 2 ]; then  
     # 比较主版本号和次版本号  
     if [ ${kernel_version_array[0]} -gt ${basee_version[0]} ]; then          
-        BUTTON=517
+        SHUTDOWN=517
         BOOT=524
     elif [ ${kernel_version_array[0]} -eq ${basee_version[0]} ] && [ ${kernel_version_array[1]} -gt ${basee_version[1]} ]; then          
         BUTTON=517
