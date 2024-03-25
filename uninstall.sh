@@ -8,13 +8,7 @@ if [ -f "$file_path" ]; then
     sudo rm -f "$file_path"    
 fi
 
-file_path="/usr/local/bin/x728-pwr.sh"
-if [ -f "$file_path" ]; then    
-    sudo rm -f "$file_path"    
-fi
-
-file_path="/usr/local/bin/xgpio_pwr"
-
+file_path="/usr/local/bin/xPWR.sh"
 if [ -f "$file_path" ]; then    
     sudo rm -f "$file_path"    
 fi
@@ -23,12 +17,10 @@ fi
 sudo sed -i '/x728off/d' ~/.bashrc
 source ~/.bashrc
 
-file_path="/usr/local/bin/x728-softsd.sh"
+file_path="/usr/local/bin/xSoft.sh"
 if [ -f "$file_path" ]; then    
     sudo rm -f "$file_path"    
 fi
 
-file_path="/usr/local/bin/xgpio_soft"
-if [ -f "$file_path" ]; then    
-    sudo rm -f "$file_path"    
-fi
+# Remove the configuratoin of config.txt
+# sudo sed -i '/dtoverlay=pwm-2chan/d' /boot/firmware/config.txt
