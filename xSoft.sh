@@ -2,7 +2,7 @@
 
 #  Use gpiod instead of obsolete interface, and suuports ubuntu 23.04 also
 
-# 检查是否提供了足够的命令行参数
+# Check if enough command line arguments were provided
 if [ "$#" -ne 2 ]; then
     echo "Usage: $0 <pwm_chip> <button_pin>" >&2
     exit 1
@@ -13,7 +13,7 @@ BUTTON=$2
 
 SLEEP=4
 
-# 检查传入的参数是否为整数
+# Checks if the passed parameter is an integer
 
 re='^[0-9\.]+$'
 if ! [[ $PWMCHIP =~ $re ]] ; then
