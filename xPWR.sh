@@ -8,13 +8,13 @@ if [ "$#" -ne 3 ]; then
   exit 1  
 fi  
 
-PWMCHIP=$1    
+GPIOCHIP=$1    
 SHUTDOWN=$2  
 BOOT=$3
 
 # Checks if the passed parameter is an integer
 re='^[0-9\.]+$'
-if ! [[ $PWMCHIP =~ $re ]] ; then
+if ! [[ $GPIOCHIP =~ $re ]] ; then
    echo "error: pwm_chip is not a number" >&2; exit 1
 fi
 
@@ -30,10 +30,10 @@ REBOOTPULSEMINIMUM=200
 REBOOTPULSEMAXIMUM=600  
   
 # Initialize the BOOT pin to 1
-gpioset $PWMCHIP $BOOT=1  
+gpioset $GPIOCHIP $BOOT=1  
   
 while [ 1 ]; do  
-  shutdownSignal=$(gpioget $PWMCHIP $SHUTDOWN)  
+  shutdownSignal=$(gpioget $GPIOCHIP $SHUTDOWN)  
   if [ $shutdownSignal -eq 0 ]; then  
     sleep 0.2  
   else  
@@ -45,7 +45,7 @@ while [ 1 ]; do
         sudo poweroff  
         exit  
       fi  
-      shutdownSignal=$(gpioget $PWMCHIP $SHUTDOWN)  
+      shutdownSignal=$(gpioget $GPIOCHIP $SHUTDOWN)  
     done  
     if [ $(($(date +%s%N | cut -b1-13)-$pulseStart)) -gt $REBOOTPULSEMINIMUM ]; then  
       echo "Your device is rebooting on pin $SHUTDOWN, recycling Rpi ..."  
