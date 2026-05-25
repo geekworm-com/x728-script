@@ -56,7 +56,8 @@ main() {
 
   # Initialize the BOOT pin to 1
     # The -t0 parameter must be added, otherwise it will be blocked here.
-  gpioset -c $GPIOCHIP -t0 $BOOT=1
+  # gpioset -c $GPIOCHIP -t0 $BOOT=1
+  gpioset -z -c $GPIOCHIP $BOOT=1
 
   while [ 1 ]; do
     shutdownSignal=$(gpioget --numeric -c $GPIOCHIP $SHUTDOWN)
